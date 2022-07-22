@@ -12,6 +12,7 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,7 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     HttpClientModule, 
     MaterialModule
   ],
-  providers: [],
+  providers: [{ provide: "BASE_API_URL", useValue: environment.apiUrl }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

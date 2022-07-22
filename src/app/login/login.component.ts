@@ -1,22 +1,14 @@
-import { Component, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../service/core/login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent{
-
-submitLoginForm(data:any) {
-     console.log('payload in parent',data)
+export class LoginComponent {
+  submitLoginForm(payload: object) {
+    console.log('payload in parent', payload);
+    this.loginService.login(payload);
   }
-  constructor(private http: HttpClient) {}
-
-  login(payload:Object) {
-    return this.http
-      .post<any>('https://practice-node-parsa.herokuapp.com/api/user/login',payload)
-      .subscribe((data) => {
-        console.log(data)
-      });
-  }
+  constructor(private loginService: LoginService) {}
 }
