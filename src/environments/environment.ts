@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-    apiUrl: 'https://practice-node-parsa.herokuapp.com'
+    apiUrl: 'http://localhost:3000'||'https://practice-node-parsa.herokuapp.com'
 };
 
 /*
