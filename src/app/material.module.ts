@@ -9,10 +9,14 @@ import {
 import {
   MatButtonModule
 } from '@angular/material/button';
+import {
+  MatProgressSpinnerModule
+} from '@angular/material/progress-spinner';
 const modules = [
   MatCardModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({
