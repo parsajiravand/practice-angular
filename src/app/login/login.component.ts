@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../service/core/login.service';
+import { LoginService } from '../service/core/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,8 +8,10 @@ import { LoginService } from '../service/core/login.service';
 })
 export class LoginComponent {
   submitLoginForm(payload: object) {
-    console.log('payload in parent', payload);
-    this.loginService.login(payload);
+    this.loginService.login(payload).then((_response) => {
+           console.log('res from comp',_response);
+       });
   }
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService,private router:Router) {}
+  ngOnInit() {console.log(this.router)}
 }
