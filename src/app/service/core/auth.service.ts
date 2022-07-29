@@ -22,7 +22,7 @@ export class LoginService {
           resolve();
         },
         error: (err: any) => {
-          reject(err);
+         resolve(err)
         },
         complete: () => {
           console.log('complete');
