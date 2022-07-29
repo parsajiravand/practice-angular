@@ -4,15 +4,15 @@
         <form [formGroup]="form" (ngSubmit)="login()">
             <p>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="Email" formControlName="email">
+                    <input type="text" matInput placeholder="Email" formControlName="email" />
                 </mat-form-field>
                 <mat-error *ngIf="form.controls['email'].errors?.['required']">Email is required</mat-error>
                 <mat-error *ngIf="form.controls['email'].errors?.['email']">Enter Valid Email format</mat-error>
             </p>
 
-            <p>
+            <p class="">
                 <mat-form-field>
-                    <input type="password" matInput placeholder="Password" formControlName="password">
+                    <input type="password" matInput placeholder="Password" formControlName="password" />
                 </mat-form-field>
                 <mat-error *ngIf="form.controls['password'].errors?.['required']">Password is required</mat-error>
             </p>
@@ -20,9 +20,12 @@
             <p *ngIf="error" class="error">
                 {{ error }}
             </p>
-
             <div class="button">
-                <button type="submit" mat-button>Login</button>
+                <button type="submit" mat-button class="text-center">
+                    <mat-spinner *ngIf="submitLoading; else submitLoadingSpinner" [color]="'primary'" [diameter]="20">
+                    </mat-spinner>
+                    <ng-template #submitLoadingSpinner>Login</ng-template>
+                </button>
             </div>
         </form>
     </mat-card-content>

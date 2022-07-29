@@ -7,11 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  loading = false;
   submitLoginForm(payload: object) {
+    this.loading = true;
     this.loginService.login(payload).then((_response) => {
-           console.log('res from comp',_response);
-       });
+      console.log('res from comp', _response);
+      this.loading = false;
+    });
   }
-  constructor(private loginService: LoginService,private router:Router) {}
-  ngOnInit() {console.log(this.router)}
+  constructor(private loginService: LoginService, private router: Router) {}
+  ngOnInit() {
+    console.log(this.router);
+  }
 }
