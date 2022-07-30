@@ -3,7 +3,6 @@ import { AuthService } from '../service/core/auth.service';
 import { Router } from '@angular/router';
 //@ts-ignore
 import Cookies from 'js-cookie';
-
 class Response {
   constructor(
     public status: boolean,
@@ -12,15 +11,16 @@ class Response {
   ) {}
 }
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
-export class LoginComponent {
+export class RegisterComponent {
+  constructor(private authService: AuthService, private router: Router) {}
   loading = false;
-  submitLoginForm(payload: object) {
+  submitRegisterForm(payload: object) {
     this.loading = true;
-    this.authService.login(payload).then((res: Response | any) => {
+    this.authService.register(payload).then((res: Response | any) => {
       console.log('ressssssss', res.status);
       if (res.status) {
         Cookies.set('NG_USER', JSON.stringify(res.data.user), { expires: 60 });
@@ -29,5 +29,4 @@ export class LoginComponent {
       this.loading = false;
     });
   }
-  constructor(private authService: AuthService, private router: Router) {}
 }

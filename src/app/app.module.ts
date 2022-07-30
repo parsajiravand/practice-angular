@@ -12,23 +12,27 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterFormComponent } from './register/register-form/register-form.component';
 import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    RegisterComponent,
+    RegisterFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-     // import HttpClientModule after BrowserModule.
-    HttpClientModule, 
-    MaterialModule
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule,
+    MaterialModule,
   ],
-  providers: [{ provide: "BASE_API_URL", useValue: environment.apiUrl }],
-  bootstrap: [AppComponent]
+  providers: [{ provide: 'BASE_API_URL', useValue: environment.apiUrl }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
